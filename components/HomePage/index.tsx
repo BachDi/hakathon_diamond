@@ -3,6 +3,7 @@ import Icon from 'components/Icon'
 import { HomeStateEnum } from 'constants/enum'
 import { observer } from 'mobx-react'
 import React, { useState } from 'react'
+import ItemDetail from './components/ItemDetail'
 
 const HomePage = () => {
   const [formState, setFormState] = useState(HomeStateEnum.LOG_IN)
@@ -96,36 +97,7 @@ const HomePage = () => {
           Available
         </Text>
       </HStack>
-      <HStack w="100%" p="16px 24px">
-        <HStack w="346">
-          <VStack>
-            <Icon iconName="green-diamond.svg" size={96} />
-          </VStack>
-          <VStack alignItems="flex-start">
-            <Text fontSize="16px" lineHeight="24px" fontWeight="500" color="text.primary">
-              0.30 Carat Round diamond
-            </Text>
-            <VStack alignItems="flex-start">
-              <HStack>
-                <Text w="96px" color="text.secondary" fontSize="12px" lineHeight="18px">
-                  Code:
-                </Text>
-                <Text color="text.secondary" fontSize="12px" lineHeight="18px">
-                  a91424d...d439487
-                </Text>
-              </HStack>
-              <HStack>
-                <Text w="96px" color="text.secondary" fontSize="12px" lineHeight="18px">
-                  GIA certificate:
-                </Text>
-                <Text color="text.secondary" fontSize="12px" lineHeight="18px">
-                  RBPUIFSDNNNHFWP
-                </Text>
-              </HStack>
-            </VStack>
-          </VStack>
-        </HStack>
-      </HStack>
+      <ItemDetail />
     </VStack>
   )
 }
