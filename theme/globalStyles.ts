@@ -7,6 +7,7 @@ export const backgroundSecondary = '#231545'
 export const backgroundBlue600 = '#341386'
 export const backgroundBlue700 = '#321F63'
 export const backgroundBlue500 = '#271F3A'
+export const backgroundBlue900 = '#150E28'
 export const backgroundGrey700 = '#39324B'
 
 // text

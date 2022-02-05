@@ -1,67 +1,132 @@
-import { Box, Button, Flex, HStack, Text, VStack } from '@chakra-ui/react'
+import { Button, HStack, Text, VStack } from '@chakra-ui/react'
 import Icon from 'components/Icon'
 import { HomeStateEnum } from 'constants/enum'
 import { observer } from 'mobx-react'
 import React, { useState } from 'react'
-import CreateAccount from './components/CreateAccount'
-import LogIn from './components/LogIn'
-import Success from './components/Success'
-const homeBackground: string = '/assets/background-fishing.png'
 
 const HomePage = () => {
   const [formState, setFormState] = useState(HomeStateEnum.LOG_IN)
   return (
-    <HStack paddingRight={2}>
-      <Box
-        bg={`url(${homeBackground})`}
-        backgroundRepeat="no-repeat"
-        height="100vh"
-        backgroundSize="contain"
-        width="80%"
-      >
-        <Box mt="163px" ml="165px">
-          <HStack mb="20px">
-            <Icon iconName="carbon_fish-multiple.svg" size={48} />
-            <Text fontSize="32px" lineHeight="48px" fontWeight="600" color="text.primary">
-              NFISH
-            </Text>
+    <VStack bg="background.blue.900" h="100vh" p="52px 165px">
+      <HStack justifyContent="space-between" w="100%">
+        <VStack>
+          <HStack gap={3}>
+            <Icon iconName="logo.svg" size={70} />
+            <Icon iconName="DIAU.svg" size={88} />
           </HStack>
-
-          <Flex gap="12px">
-            <Text fontSize="52px" lineHeight="78px" fontWeight="600" color="text.primary">
-              Play to
+        </VStack>
+        <VStack>
+          <HStack gap={8}>
+            <HStack>
+              <Button
+                bg="background.blue.700"
+                color="text.primary"
+                _hover={{ bg: 'background.blue.600' }}
+                fontSize="19px"
+                lineHeight="29px"
+                fontWeight="600"
+                p="12px 40px"
+                borderRadius="12px"
+              >
+                On sale
+              </Button>
+              <Button
+                bg="background.blue.900"
+                color="text.grey"
+                _hover={{ bg: 'background.grey' }}
+                fontSize="19px"
+                lineHeight="29px"
+                fontWeight="600"
+                p="12px 40px"
+                borderRadius="12px"
+              >
+                My bid
+              </Button>
+              <Button
+                bg="background.blue.900"
+                color="text.grey"
+                _hover={{ bg: 'background.grey' }}
+                fontSize="19px"
+                lineHeight="29px"
+                fontWeight="600"
+                p="12px 40px"
+                borderRadius="12px"
+              >
+                Owned
+              </Button>
+            </HStack>
+            <HStack>
+              <Button
+                fontSize="12px"
+                lineHeight="18px"
+                bg="background.blue.600"
+                fontWeight="normal"
+                _hover={{ bg: 'background.blue.700' }}
+                color="text.primary"
+                p="8px 16px"
+                borderRadius="12px"
+              >
+                <HStack gap={2.5}>
+                  <Text>Connect your wallet</Text>
+                  <Icon iconName="wallet-white.svg" size={24} />
+                </HStack>
+              </Button>
+            </HStack>
+          </HStack>
+        </VStack>
+      </HStack>
+      <HStack w="100%">
+        <Text fontSize="32px" lineHeight="48px" fontWeight="600" color="text.primary">
+          Diamond auction
+        </Text>
+      </HStack>
+      <HStack w="100%">
+        <Text fontSize="14px" lineHeight="21px" fontWeight="700" color="text.primary" w="370px" p="8px 24px">
+          Details
+        </Text>
+        <HStack w="400px" paddingInline={10}>
+          <Text fontSize="14px" lineHeight="21px" fontWeight="700" color="text.primary" w="160px" textAlign="center">
+            Min bid
+          </Text>
+          <Text fontSize="14px" lineHeight="21px" fontWeight="700" color="text.primary" w="160px" textAlign="center">
+            Highest bid
+          </Text>
+        </HStack>
+        <Text fontSize="14px" lineHeight="21px" fontWeight="700" color="text.primary" w="196px">
+          Available
+        </Text>
+      </HStack>
+      <HStack w="100%" p="16px 24px">
+        <HStack w="346">
+          <VStack>
+            <Icon iconName="green-diamond.svg" size={96} />
+          </VStack>
+          <VStack alignItems="flex-start">
+            <Text fontSize="16px" lineHeight="24px" fontWeight="500" color="text.primary">
+              0.30 Carat Round diamond
             </Text>
-            <Text fontSize="52px" lineHeight="78px" fontWeight="600" color="text.blue.600">
-              win!
-            </Text>
-          </Flex>
-          <Box w="300px" mb="56px">
-            <Text fontWeight="500" color="text.primary">
-              Play, Invest, Exchange and Join the contests with high rewards!
-            </Text>
-          </Box>
-          <Button
-            fontSize="21px"
-            lineHeight="32px"
-            color="text.secondary"
-            bg="background.blue.600"
-            letterSpacing="0.02em"
-            fontWeight="500"
-            _hover={{ background: 'blue.900' }}
-            height="64px"
-            p="16px 32px"
-            borderRadius="12px"
-          >
-            PLAY NOW!
-          </Button>
-        </Box>
-      </Box>
-      <VStack w="360px" bg="background.secondary" p={10} m={2} borderRadius="16px" gap={6}>
-        {formState === HomeStateEnum.LOG_IN && <LogIn />}
-        {formState === HomeStateEnum.CREATE_ACCOUNT && <CreateAccount />}
-        {formState === HomeStateEnum.SUCCESS && <Success />}
-      </VStack>
-    </HStack>
+            <VStack alignItems="flex-start">
+              <HStack>
+                <Text w="96px" color="text.secondary" fontSize="12px" lineHeight="18px">
+                  Code:
+                </Text>
+                <Text color="text.secondary" fontSize="12px" lineHeight="18px">
+                  a91424d...d439487
+                </Text>
+              </HStack>
+              <HStack>
+                <Text w="96px" color="text.secondary" fontSize="12px" lineHeight="18px">
+                  GIA certificate:
+                </Text>
+                <Text color="text.secondary" fontSize="12px" lineHeight="18px">
+                  RBPUIFSDNNNHFWP
+                </Text>
+              </HStack>
+            </VStack>
+          </VStack>
+        </HStack>
+      </HStack>
+    </VStack>
   )
 }
 

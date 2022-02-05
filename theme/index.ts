@@ -11,7 +11,8 @@ import {
   backgroundBlue500,
   backgroundBlue600,
   backgroundBlue700,
-  backgroundGrey700
+  backgroundGrey700,
+  backgroundBlue900
 } from './globalStyles'
 
 //TODO: Our breakpoints (576px, 768px, 1200px, 1440px)
@@ -49,7 +50,8 @@ const theme = extendTheme({
       blue: {
         500: backgroundBlue500,
         600: backgroundBlue600,
-        700: backgroundBlue700
+        700: backgroundBlue700,
+        900: backgroundBlue900
       },
       grey: backgroundGrey700
     }
