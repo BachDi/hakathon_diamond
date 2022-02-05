@@ -3,20 +3,15 @@ import { createBreakpoints } from '@chakra-ui/theme-tools'
 import {
   backgroundPrimary,
   backgroundSecondary,
-  backgroundButtonBlue,
-  backgroundButtonBlue100,
-  backgroundWhite200,
-  backgroundWhite400,
-  backgroundWhite500,
-  backgroundBlack50,
-  textBlue,
   textGrey500,
-  textDarkBlue,
-  textGreen,
+  textBlue100,
   textPrimary,
   textSecondary,
-  textBlack500,
-  textBlue100
+  textBlue600,
+  backgroundBlue500,
+  backgroundBlue600,
+  backgroundBlue700,
+  backgroundGrey700
 } from './globalStyles'
 
 //TODO: Our breakpoints (576px, 768px, 1200px, 1440px)
@@ -45,25 +40,18 @@ const theme = extendTheme({
       grey: textGrey500,
       blue: {
         100: textBlue100,
-        600: textBlue,
-        900: textDarkBlue
-      },
-      green: textGreen,
-      black: textBlack500
+        600: textBlue600
+      }
     },
     background: {
       primary: backgroundPrimary,
       secondary: backgroundSecondary,
       blue: {
-        100: backgroundButtonBlue100,
-        600: backgroundButtonBlue
+        500: backgroundBlue500,
+        600: backgroundBlue600,
+        700: backgroundBlue700
       },
-      white: {
-        200: backgroundWhite200,
-        400: backgroundWhite400,
-        500: backgroundWhite500
-      },
-      black: backgroundBlack50
+      grey: backgroundGrey700
     }
   },
   fonts: {
