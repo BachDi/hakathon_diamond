@@ -13,8 +13,8 @@ const OwnedPage = () => {
     code: 'a91424d...d439487',
     giaCertificate: 'RBPUIFSDNNNHFWP',
     minBid: '0.2 ETH',
-    highestBid: '0.2 ETH',
-    timeLeft: '2d 15h 33m 49s'
+    myBid: '0.2 ETH',
+    purchaseOn: 'Dec 4, 2019 - 21:42'
   }
   const redDiamond = {
     image: 'red-diamond.svg',
@@ -22,8 +22,17 @@ const OwnedPage = () => {
     code: 'a91424d...d439487',
     giaCertificate: 'RBPUIFSDNNNHFWP',
     minBid: '0.2 ETH',
-    highestBid: '0.2 ETH',
-    timeLeft: '2d 15h 33m 49s'
+    myBid: '0.2 ETH',
+    purchaseOn: 'Dec 30, 2019 - 05:18'
+  }
+  const blueDiamond = {
+    image: 'blue-diamond.svg',
+    name: '0.30 Carat Round diamond',
+    code: 'a91424d...d439487',
+    giaCertificate: 'RBPUIFSDNNNHFWP',
+    minBid: '0.2 ETH',
+    myBid: '0.2 ETH',
+    purchaseOn: 'Mar 20, 2019 - 23:14'
   }
 
   return (
@@ -31,7 +40,7 @@ const OwnedPage = () => {
       <Header />
       <HStack w="100%">
         <Text fontSize="32px" lineHeight="48px" fontWeight="600" color="text.primary">
-          Diamond auction
+          My diamonds
         </Text>
       </HStack>
       <HStack w="100%">
@@ -43,11 +52,11 @@ const OwnedPage = () => {
             Min bid
           </Text>
           <Text fontSize="14px" lineHeight="21px" fontWeight="700" color="text.primary" w="160px" textAlign="center">
-            Highest bid
+            My bid
           </Text>
         </HStack>
         <Text fontSize="14px" lineHeight="21px" fontWeight="700" color="text.primary" w="196px">
-          Available
+          Purchased on
         </Text>
       </HStack>
       <ItemDetail
@@ -56,17 +65,17 @@ const OwnedPage = () => {
         code={greenDiamond.code}
         giaCertificate={greenDiamond.giaCertificate}
         minBid={greenDiamond.minBid}
-        highestBid={greenDiamond.highestBid}
-        timeLeft={greenDiamond.timeLeft}
+        myBid={greenDiamond.myBid}
+        purchaseOn={greenDiamond.purchaseOn}
       />
       <ItemDetail
-        image={greenDiamond.image}
-        name={greenDiamond.name}
-        code={greenDiamond.code}
-        giaCertificate={greenDiamond.giaCertificate}
-        minBid={greenDiamond.minBid}
-        highestBid={greenDiamond.highestBid}
-        timeLeft={greenDiamond.timeLeft}
+        image={blueDiamond.image}
+        name={blueDiamond.name}
+        code={blueDiamond.code}
+        giaCertificate={blueDiamond.giaCertificate}
+        minBid={blueDiamond.minBid}
+        myBid={blueDiamond.myBid}
+        purchaseOn={blueDiamond.purchaseOn}
       />
       <ItemDetail
         image={redDiamond.image}
@@ -74,8 +83,8 @@ const OwnedPage = () => {
         code={redDiamond.code}
         giaCertificate={redDiamond.giaCertificate}
         minBid={redDiamond.minBid}
-        highestBid={redDiamond.highestBid}
-        timeLeft={redDiamond.timeLeft}
+        myBid={redDiamond.myBid}
+        purchaseOn={redDiamond.purchaseOn}
       />
     </VStack>
   )
