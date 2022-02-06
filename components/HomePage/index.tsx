@@ -7,8 +7,27 @@ import ItemDetail from './components/ItemDetail'
 
 const HomePage = () => {
   const [formState, setFormState] = useState(HomeStateEnum.LOG_IN)
+  const greenDiamond = {
+    image: 'green-diamond.svg',
+    name: '0.30 Carat Round diamond',
+    code: 'a91424d...d439487',
+    giaCertificate: 'RBPUIFSDNNNHFWP',
+    minBid: '0.2 ETH',
+    highestBid: '0.2 ETH',
+    timeLeft: '2d 15h 33m 49s'
+  }
+  const redDiamond = {
+    image: 'red-diamond.svg',
+    name: '0.30 Carat Round diamond',
+    code: 'a91424d...d439487',
+    giaCertificate: 'RBPUIFSDNNNHFWP',
+    minBid: '0.2 ETH',
+    highestBid: '0.2 ETH',
+    timeLeft: '2d 15h 33m 49s'
+  }
+
   return (
-    <VStack bg="background.blue.900" h="100vh" p="52px 165px">
+    <VStack bg="background.blue.900" h="100vh" p="40px 165px">
       <HStack justifyContent="space-between" w="100%">
         <VStack>
           <HStack gap={3}>
@@ -97,7 +116,33 @@ const HomePage = () => {
           Available
         </Text>
       </HStack>
-      <ItemDetail />
+      <ItemDetail
+        image={greenDiamond.image}
+        name={greenDiamond.name}
+        code={greenDiamond.code}
+        giaCertificate={greenDiamond.giaCertificate}
+        minBid={greenDiamond.minBid}
+        highestBid={greenDiamond.highestBid}
+        timeLeft={greenDiamond.timeLeft}
+      />
+      <ItemDetail
+        image={greenDiamond.image}
+        name={greenDiamond.name}
+        code={greenDiamond.code}
+        giaCertificate={greenDiamond.giaCertificate}
+        minBid={greenDiamond.minBid}
+        highestBid={greenDiamond.highestBid}
+        timeLeft={greenDiamond.timeLeft}
+      />
+      <ItemDetail
+        image={redDiamond.image}
+        name={redDiamond.name}
+        code={redDiamond.code}
+        giaCertificate={redDiamond.giaCertificate}
+        minBid={redDiamond.minBid}
+        highestBid={redDiamond.highestBid}
+        timeLeft={redDiamond.timeLeft}
+      />
     </VStack>
   )
 }

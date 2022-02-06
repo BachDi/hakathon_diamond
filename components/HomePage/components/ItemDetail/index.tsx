@@ -2,16 +2,26 @@ import { HStack, VStack, Text, Button } from '@chakra-ui/react'
 import Icon from 'components/Icon'
 import React from 'react'
 
-const ItemDetail = () => {
+interface IItemDetailProps {
+  image: string
+  name: string
+  code: string
+  giaCertificate: string
+  minBid: string
+  highestBid: string
+  timeLeft: string
+}
+const ItemDetail = (props: IItemDetailProps) => {
+  const { image, name, code, giaCertificate, minBid, highestBid, timeLeft } = props
   return (
     <HStack w="100%" bg="background.secondary" borderRadius="16px">
       <HStack w="370px" p="16px 24px">
         <VStack>
-          <Icon iconName="green-diamond.svg" size={96} />
+          <Icon iconName={image} size={96} />
         </VStack>
         <VStack alignItems="flex-start">
           <Text fontSize="16px" lineHeight="24px" fontWeight="500" color="text.primary">
-            0.30 Carat Round diamond
+            {name}
           </Text>
           <VStack alignItems="flex-start">
             <HStack>
@@ -19,7 +29,7 @@ const ItemDetail = () => {
                 Code:
               </Text>
               <Text color="text.secondary" fontSize="12px" lineHeight="18px">
-                a91424d...d439487
+                {code}
               </Text>
             </HStack>
             <HStack>
@@ -27,7 +37,7 @@ const ItemDetail = () => {
                 GIA certificate:
               </Text>
               <Text color="text.secondary" fontSize="12px" lineHeight="18px">
-                RBPUIFSDNNNHFWP
+                {giaCertificate}
               </Text>
             </HStack>
           </VStack>
@@ -35,14 +45,14 @@ const ItemDetail = () => {
       </HStack>
       <HStack w="400px" paddingInline={10}>
         <Text fontSize="12px" lineHeight="18px" fontWeight="500" color="text.primary" w="160px" textAlign="center">
-          0.2 ETH
+          {minBid}
         </Text>
         <Text fontSize="12px" lineHeight="18px" fontWeight="500" color="text.primary" w="160px" textAlign="center">
-          0.2 ETH
+          {highestBid}
         </Text>
       </HStack>
       <Text fontSize="12px" lineHeight="18px" fontWeight="500" color="text.primary" w="196px">
-        2d 15h 33m 49s
+        {timeLeft}
       </Text>
       <HStack>
         <VStack gap={2}>
