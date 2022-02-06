@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 import React, { useState } from 'react'
 import ItemDetail from './components/ItemDetail'
 
-const HomePage = () => {
+const OwnedPage = () => {
   const [formState, setFormState] = useState(HomeStateEnum.LOG_IN)
   const greenDiamond = {
     image: 'green-diamond.svg',
@@ -81,4 +81,4 @@ const HomePage = () => {
   )
 }
 
-export default observer(HomePage)
+export default observer(OwnedPage)

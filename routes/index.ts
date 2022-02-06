@@ -2,6 +2,9 @@ const routes = {
   home: {
     value: '/'
   },
+  onsale: {
+    value: '/'
+  },
   main: {
     value: '/home'
   },
