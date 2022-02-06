@@ -1,18 +1,28 @@
 import { HStack, VStack, Text, Button } from '@chakra-ui/react'
 import Icon from 'components/Icon'
-import React from 'react'
+import ViewHistoryModal from 'components/ViewHistoryModal'
+import React, { useState } from 'react'
+import { shortenString } from 'utils/common'
 
 interface IItemDetailProps {
   image: string
   name: string
   code: string
   giaCertificate: string
-  minBid: string
-  myBid: string
+  minBid: number
+  myBid: number
   purchaseOn: string
 }
 const ItemDetail = (props: IItemDetailProps) => {
   const { image, name, code, giaCertificate, minBid, myBid, purchaseOn } = props
+  const [isOpenViewHistoryModal, setIsOpenViewHistoryModal] = useState(false)
+  function openViewHistoryModal() {
+    setIsOpenViewHistoryModal(true)
+  }
+  function closeViewHistoryModal() {
+    setIsOpenViewHistoryModal(false)
+  }
+
   return (
     <HStack w="100%" bg="background.secondary" borderRadius="16px">
       <HStack w="370px" p="16px 24px" gap={4}>
@@ -29,7 +39,7 @@ const ItemDetail = (props: IItemDetailProps) => {
                 Code:
               </Text>
               <Text color="text.secondary" fontSize="12px" lineHeight="18px">
-                {code}
+                {shortenString(code, 14)}
               </Text>
             </HStack>
             <HStack>
@@ -45,10 +55,10 @@ const ItemDetail = (props: IItemDetailProps) => {
       </HStack>
       <HStack w="400px" paddingInline={10}>
         <Text fontSize="12px" lineHeight="18px" fontWeight="500" color="text.primary" w="160px" textAlign="center">
-          {minBid}
+          {minBid} ETH
         </Text>
         <Text fontSize="12px" lineHeight="18px" fontWeight="500" color="text.primary" w="160px" textAlign="center">
-          {myBid}
+          {myBid} ETH
         </Text>
       </HStack>
       <Text fontSize="12px" lineHeight="18px" fontWeight="500" color="text.primary" w="196px">
@@ -67,6 +77,7 @@ const ItemDetail = (props: IItemDetailProps) => {
             borderRadius="12px"
             w="97px"
             justifyContent="flex-start"
+            onClick={openViewHistoryModal}
           >
             <HStack>
               <Icon iconName="history-white.svg" size={16} />
@@ -75,6 +86,14 @@ const ItemDetail = (props: IItemDetailProps) => {
           </Button>
         </VStack>
       </HStack>
+      <ViewHistoryModal
+        isOpen={isOpenViewHistoryModal}
+        closeModal={closeViewHistoryModal}
+        image={image}
+        name={name}
+        code={code}
+        giaCertificate={giaCertificate}
+      />
     </HStack>
   )
 }

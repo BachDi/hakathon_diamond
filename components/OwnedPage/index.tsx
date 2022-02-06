@@ -8,30 +8,32 @@ const OwnedPage = () => {
   const greenDiamond = {
     image: 'green-diamond.svg',
     name: '0.30 Carat Round diamond',
-    code: 'a91424d...d439487',
+    code: 'a91424d65a1d56a1qe36d439487',
     giaCertificate: 'RBPUIFSDNNNHFWP',
-    minBid: '0.2 ETH',
-    myBid: '0.2 ETH',
+    minBid: 0.2,
+    myBid: 0.2,
     purchaseOn: 'Dec 4, 2019 - 21:42'
   }
   const redDiamond = {
     image: 'red-diamond.svg',
     name: '0.30 Carat Round diamond',
-    code: 'a91424d...d439487',
+    code: 'a91424d65a1d56a1qe36d439487',
     giaCertificate: 'RBPUIFSDNNNHFWP',
-    minBid: '0.2 ETH',
-    myBid: '0.2 ETH',
+    minBid: 0.2,
+    myBid: 0.2,
     purchaseOn: 'Dec 30, 2019 - 05:18'
   }
   const blueDiamond = {
     image: 'blue-diamond.svg',
     name: '0.30 Carat Round diamond',
-    code: 'a91424d...d439487',
+    code: 'a91424d65a1d56a1qe36d439487',
     giaCertificate: 'RBPUIFSDNNNHFWP',
-    minBid: '0.2 ETH',
-    myBid: '0.2 ETH',
+    minBid: 0.2,
+    myBid: 0.2,
     purchaseOn: 'Mar 20, 2019 - 23:14'
   }
+
+  const items = [greenDiamond, blueDiamond, redDiamond]
 
   return (
     <VStack bg="background.blue.900" h="100vh" w="100vw" p="40px 165px">
@@ -57,33 +59,18 @@ const OwnedPage = () => {
           Purchased on
         </Text>
       </HStack>
-      <ItemDetail
-        image={greenDiamond.image}
-        name={greenDiamond.name}
-        code={greenDiamond.code}
-        giaCertificate={greenDiamond.giaCertificate}
-        minBid={greenDiamond.minBid}
-        myBid={greenDiamond.myBid}
-        purchaseOn={greenDiamond.purchaseOn}
-      />
-      <ItemDetail
-        image={blueDiamond.image}
-        name={blueDiamond.name}
-        code={blueDiamond.code}
-        giaCertificate={blueDiamond.giaCertificate}
-        minBid={blueDiamond.minBid}
-        myBid={blueDiamond.myBid}
-        purchaseOn={blueDiamond.purchaseOn}
-      />
-      <ItemDetail
-        image={redDiamond.image}
-        name={redDiamond.name}
-        code={redDiamond.code}
-        giaCertificate={redDiamond.giaCertificate}
-        minBid={redDiamond.minBid}
-        myBid={redDiamond.myBid}
-        purchaseOn={redDiamond.purchaseOn}
-      />
+      {items.map((item, index) => (
+        <ItemDetail
+          key={index}
+          image={item.image}
+          name={item.name}
+          code={item.code}
+          giaCertificate={item.giaCertificate}
+          minBid={item.minBid}
+          myBid={item.myBid}
+          purchaseOn={item.purchaseOn}
+        />
+      ))}
     </VStack>
   )
 }

@@ -23,7 +23,6 @@ interface IPlacebidModalProps {
 
 const PlacebidModal = (props: IPlacebidModalProps) => {
   const { isOpen, closeModal, minBid, userBalance, amount, setAmount } = props
-  // const [amount, setAmount] = useState<number>(0)
   const serviceFee = 0.01
   return (
     <>

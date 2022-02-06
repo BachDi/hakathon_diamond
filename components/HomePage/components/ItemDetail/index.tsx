@@ -1,7 +1,9 @@
 import { HStack, VStack, Text, Button } from '@chakra-ui/react'
 import Icon from 'components/Icon'
 import PlacebidModal from 'components/PlacebidModal'
+import ViewHistoryModal from 'components/ViewHistoryModal'
 import React, { useState } from 'react'
+import { shortenString } from 'utils/common'
 
 interface IItemDetailProps {
   image: string
@@ -15,6 +17,8 @@ interface IItemDetailProps {
 const ItemDetail = (props: IItemDetailProps) => {
   const { image, name, code, giaCertificate, minBid, highestBid, timeLeft } = props
   const [isOpenPlacebidModal, setIsOpenPlacebidModal] = useState(false)
+  const [isOpenViewHistoryModal, setIsOpenViewHistoryModal] = useState(false)
+
   const userBalance = 123.456789
   const [amount, setAmount] = useState<number>(0)
 
@@ -24,6 +28,12 @@ const ItemDetail = (props: IItemDetailProps) => {
   function closePlacebidModal() {
     setIsOpenPlacebidModal(false)
     setAmount(0)
+  }
+  function openViewHistoryModal() {
+    setIsOpenViewHistoryModal(true)
+  }
+  function closeViewHistoryModal() {
+    setIsOpenViewHistoryModal(false)
   }
 
   return (
@@ -42,7 +52,7 @@ const ItemDetail = (props: IItemDetailProps) => {
                 Code:
               </Text>
               <Text color="text.secondary" fontSize="12px" lineHeight="18px">
-                {code}
+                {shortenString(code, 14)}
               </Text>
             </HStack>
             <HStack>
@@ -98,6 +108,7 @@ const ItemDetail = (props: IItemDetailProps) => {
             borderRadius="12px"
             w="120px"
             justifyContent="flex-start"
+            onClick={openViewHistoryModal}
           >
             <HStack>
               <Icon iconName="history-white.svg" size={16} />
@@ -113,6 +124,14 @@ const ItemDetail = (props: IItemDetailProps) => {
         userBalance={userBalance}
         amount={amount}
         setAmount={setAmount}
+      />
+      <ViewHistoryModal
+        isOpen={isOpenViewHistoryModal}
+        closeModal={closeViewHistoryModal}
+        image={image}
+        name={name}
+        code={code}
+        giaCertificate={giaCertificate}
       />
     </HStack>
   )

@@ -10,7 +10,7 @@ const HomePage = () => {
   const greenDiamond = {
     image: 'green-diamond.svg',
     name: '0.30 Carat Round diamond',
-    code: 'a91424d...d439487',
+    code: 'a91424d65a1d56a1qe36d439487',
     giaCertificate: 'RBPUIFSDNNNHFWP',
     minBid: 0.2,
     highestBid: 0.2,
@@ -19,7 +19,7 @@ const HomePage = () => {
   const redDiamond = {
     image: 'red-diamond.svg',
     name: '0.30 Carat Round diamond',
-    code: 'a91424d...d439487',
+    code: 'a91424d65a1d56a1qe36d439487',
     giaCertificate: 'RBPUIFSDNNNHFWP',
     minBid: 0.2,
     highestBid: 0.2,
