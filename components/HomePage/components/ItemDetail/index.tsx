@@ -1,18 +1,31 @@
 import { HStack, VStack, Text, Button } from '@chakra-ui/react'
 import Icon from 'components/Icon'
-import React from 'react'
+import PlacebidModal from 'components/PlacebidModal'
+import React, { useState } from 'react'
 
 interface IItemDetailProps {
   image: string
   name: string
   code: string
   giaCertificate: string
-  minBid: string
-  highestBid: string
+  minBid: number
+  highestBid: number
   timeLeft: string
 }
 const ItemDetail = (props: IItemDetailProps) => {
   const { image, name, code, giaCertificate, minBid, highestBid, timeLeft } = props
+  const [isOpenPlacebidModal, setIsOpenPlacebidModal] = useState(false)
+  const userBalance = 123.456789
+  const [amount, setAmount] = useState<number>(0)
+
+  function openPlacebidModal() {
+    setIsOpenPlacebidModal(true)
+  }
+  function closePlacebidModal() {
+    setIsOpenPlacebidModal(false)
+    setAmount(0)
+  }
+
   return (
     <HStack w="100%" bg="background.secondary" borderRadius="16px">
       <HStack w="370px" p="16px 24px" gap={4}>
@@ -45,10 +58,10 @@ const ItemDetail = (props: IItemDetailProps) => {
       </HStack>
       <HStack w="400px" paddingInline={10}>
         <Text fontSize="12px" lineHeight="18px" fontWeight="500" color="text.primary" w="160px" textAlign="center">
-          {minBid}
+          {minBid} ETH
         </Text>
         <Text fontSize="12px" lineHeight="18px" fontWeight="500" color="text.primary" w="160px" textAlign="center">
-          {highestBid}
+          {highestBid} ETH
         </Text>
       </HStack>
       <Text fontSize="12px" lineHeight="18px" fontWeight="500" color="text.primary" w="196px">
@@ -67,6 +80,7 @@ const ItemDetail = (props: IItemDetailProps) => {
             borderRadius="12px"
             w="120px"
             justifyContent="flex-start"
+            onClick={openPlacebidModal}
           >
             <HStack>
               <Icon iconName="auction-white.svg" size={16} />
@@ -92,6 +106,14 @@ const ItemDetail = (props: IItemDetailProps) => {
           </Button>
         </VStack>
       </HStack>
+      <PlacebidModal
+        isOpen={isOpenPlacebidModal}
+        closeModal={closePlacebidModal}
+        minBid={minBid}
+        userBalance={userBalance}
+        amount={amount}
+        setAmount={setAmount}
+      />
     </HStack>
   )
 }

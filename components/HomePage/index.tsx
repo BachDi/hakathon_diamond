@@ -12,8 +12,8 @@ const HomePage = () => {
     name: '0.30 Carat Round diamond',
     code: 'a91424d...d439487',
     giaCertificate: 'RBPUIFSDNNNHFWP',
-    minBid: '0.2 ETH',
-    highestBid: '0.2 ETH',
+    minBid: 0.2,
+    highestBid: 0.2,
     timeLeft: '2d 15h 33m 49s'
   }
   const redDiamond = {
@@ -21,10 +21,12 @@ const HomePage = () => {
     name: '0.30 Carat Round diamond',
     code: 'a91424d...d439487',
     giaCertificate: 'RBPUIFSDNNNHFWP',
-    minBid: '0.2 ETH',
-    highestBid: '0.2 ETH',
+    minBid: 0.2,
+    highestBid: 0.2,
     timeLeft: '2d 15h 33m 49s'
   }
+
+  const items = [greenDiamond, redDiamond, greenDiamond]
 
   return (
     <VStack bg="background.blue.900" h="100vh" w="100vw" p="40px 165px">
@@ -50,33 +52,18 @@ const HomePage = () => {
           Available
         </Text>
       </HStack>
-      <ItemDetail
-        image={greenDiamond.image}
-        name={greenDiamond.name}
-        code={greenDiamond.code}
-        giaCertificate={greenDiamond.giaCertificate}
-        minBid={greenDiamond.minBid}
-        highestBid={greenDiamond.highestBid}
-        timeLeft={greenDiamond.timeLeft}
-      />
-      <ItemDetail
-        image={greenDiamond.image}
-        name={greenDiamond.name}
-        code={greenDiamond.code}
-        giaCertificate={greenDiamond.giaCertificate}
-        minBid={greenDiamond.minBid}
-        highestBid={greenDiamond.highestBid}
-        timeLeft={greenDiamond.timeLeft}
-      />
-      <ItemDetail
-        image={redDiamond.image}
-        name={redDiamond.name}
-        code={redDiamond.code}
-        giaCertificate={redDiamond.giaCertificate}
-        minBid={redDiamond.minBid}
-        highestBid={redDiamond.highestBid}
-        timeLeft={redDiamond.timeLeft}
-      />
+      {items.map((item, index) => (
+        <ItemDetail
+          key={index}
+          image={item.image}
+          name={item.name}
+          code={item.code}
+          giaCertificate={item.giaCertificate}
+          minBid={item.minBid}
+          highestBid={item.highestBid}
+          timeLeft={item.timeLeft}
+        />
+      ))}
     </VStack>
   )
 }

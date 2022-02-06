@@ -7,12 +7,6 @@ const routes = {
   },
   owned: {
     value: '/owned'
-  },
-  market: {
-    value: '/market'
-  },
-  game: {
-    value: '/game'
   }
 }
 
