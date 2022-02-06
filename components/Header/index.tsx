@@ -1,12 +1,20 @@
-import { Button, HStack, VStack } from '@chakra-ui/react'
+import { HStack, VStack } from '@chakra-ui/react'
 import Icon from 'components/Icon'
 import { useRouter } from 'next/router'
+import routes from 'routes'
 import Connected from './components/Connected'
+import NavButton from './components/NavButton'
 import NotConnect from './components/NotConnect'
 
 const Header = () => {
   const router = useRouter()
   const isOwnedPage = router.pathname === '/owned'
+  function goToOnSale() {
+    router.push(routes.onsale.value)
+  }
+  function goToOwned() {
+    router.push(routes.owned.value)
+  }
   return (
     <HStack justifyContent="space-between" w="100%">
       <VStack>
@@ -18,42 +26,9 @@ const Header = () => {
       <VStack>
         <HStack gap={8}>
           <HStack>
-            <Button
-              bg="background.blue.700"
-              color="text.primary"
-              _hover={{ bg: 'background.blue.600' }}
-              fontSize="19px"
-              lineHeight="29px"
-              fontWeight="600"
-              p="12px 40px"
-              borderRadius="12px"
-            >
-              On sale
-            </Button>
-            <Button
-              bg="background.blue.900"
-              color="text.grey"
-              _hover={{ bg: 'background.grey' }}
-              fontSize="19px"
-              lineHeight="29px"
-              fontWeight="600"
-              p="12px 40px"
-              borderRadius="12px"
-            >
-              My bid
-            </Button>
-            <Button
-              bg="background.blue.900"
-              color="text.grey"
-              _hover={{ bg: 'background.grey' }}
-              fontSize="19px"
-              lineHeight="29px"
-              fontWeight="600"
-              p="12px 40px"
-              borderRadius="12px"
-            >
-              Owned
-            </Button>
+            <NavButton label="On sale" isActive={!isOwnedPage} onClick={goToOnSale} />
+            <NavButton label="My bid" onClick={() => console.log('My bid')} />
+            <NavButton label="Owned" isActive={isOwnedPage} onClick={goToOwned} />
           </HStack>
           <HStack> {isOwnedPage ? <Connected /> : <NotConnect />}</HStack>
         </HStack>

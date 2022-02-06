@@ -1,12 +1,10 @@
 import { HStack, Text, VStack } from '@chakra-ui/react'
 import Header from 'components/Header'
-import { HomeStateEnum } from 'constants/enum'
 import { observer } from 'mobx-react'
-import React, { useState } from 'react'
+import React from 'react'
 import ItemDetail from './components/ItemDetail'
 
 const OwnedPage = () => {
-  const [formState, setFormState] = useState(HomeStateEnum.LOG_IN)
   const greenDiamond = {
     image: 'green-diamond.svg',
     name: '0.30 Carat Round diamond',

@@ -5,8 +5,8 @@ const routes = {
   onsale: {
     value: '/'
   },
-  main: {
-    value: '/home'
+  owned: {
+    value: '/owned'
   },
   market: {
     value: '/market'
